@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.challengeApp.name }}-app
+  labels:
+    app: {{ .Values.challengeApp.name }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ .Values.challengeApp.name }}
+      tier: {{ .Values.challengeApp.tier }}
+  replicas: {{ .Values.challengeApp.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: {{ .Values.challengeApp.name }}
+        tier: {{ .Values.challengeApp.tier }}
+    spec:
+      containers:
+      - name: {{ .Values.challengeApp.name }}
+        image: {{ .Values.challengeApp.image }}
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: 250m
+            memory: 100Mi
+        ports:
+        - containerPort: {{ .Values.challengeApp.imagePort }}
+        livenessProbe:
+          httpGet:
+            path: /
+            port: {{ .Values.challengeApp.imagePort }}

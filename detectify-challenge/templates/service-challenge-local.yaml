@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.challengeApp.name }}-service
+  labels:
+    app: {{ .Values.challengeApp.name }}
+    tier: {{ .Values.challengeApp.tier }}
+spec:
+  type: {{ .Values.challengeApp.serviceType }}
+  ports:
+  - port: {{ .Values.challengeApp.imagePort }}
+  selector:
+    app: {{ .Values.challengeApp.name }}
+    tier: {{ .Values.challengeApp.tier }}

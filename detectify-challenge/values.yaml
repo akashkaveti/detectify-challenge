@@ -1,0 +1,16 @@
+challengeApp:
+  name: challenge-local
+  tier: front-end
+  replicaCount: 1
+  image: akashkaveti/challenge-local:latest
+  imagePort: 80
+  ingressHost: challenge.local
+  serviceType: LoadBalancer
+detectifyChallengeApp:
+  name: detectify-challenge-local
+  tier: front-end
+  replicaCount: 1
+  image: akashkaveti/detectify-challenge-local:latest
+  imagePort: 80
+  ingressHost: detectify.challenge.local
+  serviceType: LoadBalancer

@@ -1,0 +1,13 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: {{ .Values.detectifyChallengeApp.name }}-ingress
+spec:
+  rules:
+  - host: {{ .Values.detectifyChallengeApp.ingressHost }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ .Values.detectifyChallengeApp.name }}-service
+          servicePort: {{ .Values.detectifyChallengeApp.imagePort }}

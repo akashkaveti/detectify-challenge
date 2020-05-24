@@ -3,6 +3,10 @@ kind: Ingress
 metadata:
   name: {{ .Values.challengeApp.name }}-ingress
 spec:
+  tls:
+  - hosts:
+      - {{ .Values.challengeApp.ingressHost }}
+    secretName: {{ .Values.challengeApp.name }}-tls
   rules:
   - host: {{ .Values.challengeApp.ingressHost }}
     http:

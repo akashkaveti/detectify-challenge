@@ -1,7 +1,5 @@
-CHALLENGE_LOCAL_IMAGE = akashkaveti/challenge-local
-DETECTIFY_CHALLENGE_LOCAL_IMAGE = akashkaveti/detectify-challenge-local
 IMAGE_TAG = latest
-NAMESPACE=default
+
 
 default: build
 

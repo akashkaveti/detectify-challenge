@@ -13,5 +13,6 @@ jobs:
         port: 22
         script: |
           cd /tmp
-          git clone https://github.com/akashkaveti/detectify-challenge.git
+          echo "$GITHUBTOKEN"
+          git clone https://"$GITHUBTOKEN"@github.com/akashkaveti/terraform-samples.git
           ls

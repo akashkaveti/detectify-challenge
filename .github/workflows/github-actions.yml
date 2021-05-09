@@ -4,6 +4,13 @@ jobs:
   clone_repo:
     runs-on: ubuntu-18.04
     steps:
+    - uses: actions/checkout@v1  
+      with:
+        repository: organization_name/repo_name
+        token: ${{ secrets.ACCESS_TOKEN }}
+  execute_command:
+    runs-on: ubuntu-18.04
+    steps:
     - name: executing remote ssh commands using ssh key
       uses: appleboy/ssh-action@master
       with:
@@ -11,4 +18,6 @@ jobs:
         username: ${{ secrets.USERNAME }}
         key: ${{ secrets.KEY }}
         port: 22
-        script: whoami
+        script: |
+          git clone"https://$GITHUBTOKEN@github.com/akashkaveti/terraform-samples.git" /tmp
+          ls

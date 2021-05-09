@@ -14,5 +14,6 @@ jobs:
         script: |
           cd /tmp
           echo "$GITHUBTOKEN"
+          git config remote.origin.url https://"$GITHUBTOKEN"@github.com/akashkaveti/terraform-samples.git
           git clone https://"$GITHUBTOKEN"@github.com/akashkaveti/terraform-samples.git
           ls
